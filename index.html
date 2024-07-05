@@ -6,27 +6,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="container">
     <div id="box">
         <div class="ball" id="ball1"></div>
     </div>
-    <!--
-    <label for="x1">X:</label>
-                <input type="number" id="x1" value="0">
-                <label for="y1">Y:</label>
-                <input type="number" id="y1" value="9.8"></td>
-    <label for="x2">X:</label>
-                <input type="number" id="x2" value="9.8">
-                <label for="y2">Y:</label>
-                <input type="number" id="y2" value="0"></td>
-    <label for="x3">X:</label>
-                <input type="number" id="x3" value="0">
-                <label for="y3">Y:</label>
-                <input type="number" id="y3" value="-9.8"></td>
-    <label for="x4">X:</label>
-                <input type="number" id="x4" value="-9.8">
-                <label for="y4">Y:</label>
-                <input type="number" id="y4" value="0"></td>
-    -->
+    <div id="inputTable">
+        <div class="entry">
+            <label for="g">Strength of gravity</label>
+            <input id="g" type="range" min="0" max="50" value="0.1" step="0.001">
+        </div>
+        <div class="entry">
+            <label for="T">Time period before switching</label>
+            <input id="T" type="range" min="0.001" max="10" value="2" step="0.001">
+        </div>
+    </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
