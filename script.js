@@ -1,9 +1,10 @@
 let g = [0,0]
+let gMagnitude = 0.1
 const C = 0.8
 const inconsequentialVelocity = 0.0001
 const metre = 100
-const duration = 2000
-const gs = [[0.1,0],[0,0.1],[-0.1,0],[0,-0.1]]
+let duration = 2000
+const gs = [[1,0],[0,1],[-1,0],[0,-1]]
 let place = 0
 
 function tfromuas(u,a,s){
@@ -119,6 +120,17 @@ function collideBall(){
     }
 }
 
+gInput = document.getElementById("g")
+gInput.addEventListener("change",() =>{
+    gMagnitude = gInput.value
+    g = [gMagnitude*gs[place%4][0],gMagnitude*gs[place%4][1]]
+})
+
+TInput = document.getElementById("T")
+TInput.addEventListener("change",(newDuration)=>{
+    duration = TInput.value*1000
+})
+
 let time = performance.now()
 let previousSwap = performance.now()
 
@@ -128,7 +140,7 @@ function update(){
     if (performance.now()-previousSwap > duration){
         previousSwap = performance.now()
         place += 1
-        g = gs[place%4]
+        g = [gMagnitude*gs[place%4][0],gMagnitude*gs[place%4][1]]
     }
 
     const deltaTime = (performance.now()-time)/1000
